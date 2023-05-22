@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<th:block layout:fragment="content">
+    <h5>도서관 정보 추가</h5>
+
+    <form name="libfrm" id="libfrm" method="post">
+        <div>도서관 이름 : <input type="text" id="lbname" name="lbname" value="${lb.lbname}" /></div>
+        <div>시도 : <input type="text" id="sido" name="sido" value="${lb.sido}" /></div>
+        <div>구군 : <input type="text" id="gugun" name="gugun" value="${lb.gugun}" /></div>
+        <div>도서관 유형 : <input type="text" id="lbtype" name="lbtype" value="${lb.lbtype}" /></div>
+        <div>운영종료일 : <input type="text" id="clsday" name="clsday" value="${lb.clsday}" /></div>
+        <div>주소 : <input type="text" id="addr" name="addr" value="${lb.addr}" /></div>
+        <div>연락처 : <input type="text" id="phone" name="phone" value="${lib.phone}" /></div>
+        <div>홈페이지 : <input type="text" id="homepage" name="homepage" value="${lb.homepage}" /></div>
+        <div>경도 : <input type="text" id="lat" name="lat" value="${lb.lat}" /></div>
+        <div>위도 : <input type="text" id="lon" name="lon" value="${lb.lon}" /></div>
+        <div><button type="submit">입력 완료</button></div>
+    </form>
+
+</th:block>
+
+</html>

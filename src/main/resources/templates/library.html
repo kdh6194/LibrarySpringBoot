@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<th:block layout:fragment="content">
+
+    <h5>도서관 정보</h5>
+    <ul>
+        <li th:text="${lb.lbno}"></li>
+        <li th:text="${lb.lbname}"></li>
+        <li th:text="${lb.sido}"></li>
+        <li th:text="${lb.gugun}"></li>
+        <li th:text="${lb.lbtype}"></li>
+        <li th:text="${lb.clsday}"></li>
+        <li th:text="${lb.addr}"></li>
+        <li th:text="${lb.phone}"></li>
+        <li th:text="${lb.homepage}"></li>
+        <li th:text="${lb.lat}"></li>
+        <li th:text="${lb.lon}"></li>
+        <li th:text="${lb.regdate}"></li>
+    </ul>
+
+    <p><a th:href="|/update?lbno=${lb.lbno}|">정보 수정</a></p>
+    <p><a th:href="|/delete?lbno=${lb.lbno}|">정보 삭제</a></p>
+
+</th:block>
+
+</html>
