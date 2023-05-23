@@ -3,10 +3,11 @@ package honeybee.spring.libraryspringboot.dao;
 import honeybee.spring.libraryspringboot.model.Library;
 
 import java.util.List;
+import java.util.Map;
 
 public interface LibraryDAO {
-    List<Library> selectLibrary(int cpage);
-    int countLibrary();
+    Map<String, Object> selectLibrary(int cpage);
+//    int countLibrary(); M
     int insertLibrary(Library lb);
     Library readOneLibrary(int lbno);
 

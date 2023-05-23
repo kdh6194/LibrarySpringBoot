@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("lbsrv")
 public class LibraryServiceImpl implements LibraryService {
@@ -13,14 +14,14 @@ public class LibraryServiceImpl implements LibraryService {
 private LibraryDAO lbdao;
 
     @Override
-    public List<Library> showLibrary(int cpage) {
+    public Map<String, Object> showLibrary(int cpage) {
         return lbdao.selectLibrary(cpage-1);
     }
 
-    @Override
-    public int countLibrary() {
-        return lbdao.countLibrary();
-    }
+//    @Override
+//    public int countLibrary() {
+//        return lbdao.countLibrary();
+//    }
 
     @Override
     public boolean newLibrary(Library lb) {

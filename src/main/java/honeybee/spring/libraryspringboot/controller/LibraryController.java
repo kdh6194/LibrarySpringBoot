@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping("/lib")
 public class LibraryController {
@@ -22,10 +24,12 @@ public class LibraryController {
         mv.setViewName("liblist");
         if (cpg == null || cpg == 0) cpg = 1;
 
-        mv.addObject("lb", lbsrv.showLibrary(cpg));
+        Map<String, Object> libs = lbsrv.showLibrary(cpg);
+
+        mv.addObject("lb", libs.get("lb"));
         mv.addObject("cpg", cpg);
         mv.addObject("stpg", ((cpg - 1) / 10) * 10 + 1);
-        mv.addObject("cntpg", lbsrv.countLibrary());
+        mv.addObject("cntpg", libs.get("cntpg"));
         return mv;
     }
     @GetMapping("/add")
