@@ -7,8 +7,18 @@
 <div id="main" th:with="pglink=${ #strings.isEmpty(param.fkey) ? '/lib/list?cpg=':'/lib/find?ftype='+ param.ftype + '&fkey=' + param.fkey + '&cpg='}">
     <h5>도서관 정보 조회</h5>
     <div>
-    <table >
-        <tr><th>도서관번호</th><th>도서관명</th><th>시도</th><th>구군</th><th>운영종료일</th><th>연락처</th></tr>
+
+        <th:block th:if="${cpg > cntpg}">
+<!-- <script>location.href="/lib/list?cpg=1";</script>
+                페이지 번호가 끝 번호를 넘었을 때 1페이지로 보냄 -->
+            <script th:inline="javascript">
+                location.href="/lib/list?cpg=" + [[${cntpg}]];
+            </script>
+<!-- 페이지 번호가 끝 번호를 넘었을 때 끝페이지로 보냄     -->
+        </th:block>
+
+        <table>
+        <tr><th>도서관번호</th><th>도서관명</th><th style="width: 13%">시도</th><th style="width: 13%">구군</th><th style="width: 27%">운영종료일</th><th style="width: 13%">연락처</th></tr>
         <th:block th:each="lb:${lb}" >
             <tr><td><a th:href="|/view?lbno=${lb.lbno}|" th:text="${lb.lbno}"> </a></td>
                 <td th:text="${lb.lbname}"> </td>
