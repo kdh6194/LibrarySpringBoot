@@ -28,9 +28,9 @@ public class Library {
     private String phone;
     private String homepage;
     @Column(insertable = false,updatable = false)
-    private Double lat;
+    private String lat;
     @Column(insertable = false,updatable = false)
-    private Double lon;
+    private String lon;
     @CreatedDate
     @Column(insertable = false,updatable = false)
     private LocalDateTime regdate;
